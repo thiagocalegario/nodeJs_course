@@ -3,16 +3,7 @@ const path = require("path")
 const hbs = require('hbs')
 const app = express()
 const coord = require("./../../section5/sup")
-
-
-const publicDirectFolder = path.join(__dirname, '../public')
-const viewsPath = path.join(__dirname, '../templates/views')
-const partialsPath = path.join(__dirname, '../templates/partials')
-
-
-app.set('views', viewsPath)
-app.set('view engine', 'hbs');
-hbs.registerPartials(partialsPath)
+const port = process.env.PORT || 3000
 
 app.use(express.static(publicDirectFolder))
 
@@ -80,6 +71,6 @@ app.get('*', (req, res) => {
         tittle: 'This page does not exist'
     })
 })
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("Your server is on in the port 3000")
 })
