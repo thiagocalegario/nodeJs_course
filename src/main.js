@@ -2,7 +2,7 @@ const express = require("express")
 const path = require("path")
 const hbs = require('hbs')
 const app = express()
-const coord = require("./sup")
+const coord = require("../public/js/sup")
 const port = process.env.PORT || 3000
 
 app.use(express.static(publicDirectFolder))
