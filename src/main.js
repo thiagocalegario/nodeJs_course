@@ -2,8 +2,18 @@ const express = require("express")
 const path = require("path")
 const hbs = require('hbs')
 const app = express()
-const coord = require("../public/js/sup")
-const port = process.env.PORT || 3000
+const coord = require("./../../section5/sup")
+const port = process.env.POST || 3000
+
+
+const publicDirectFolder = path.join(__dirname, '../public')
+const viewsPath = path.join(__dirname, '../templates/views')
+const partialsPath = path.join(__dirname, '../templates/partials')
+
+
+app.set('views', viewsPath)
+app.set('view engine', 'hbs');
+hbs.registerPartials(partialsPath)
 
 app.use(express.static(publicDirectFolder))
 
