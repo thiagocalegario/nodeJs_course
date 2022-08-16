@@ -5,7 +5,7 @@ const app = express()
 const coord = require("./sup")
 
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 
 const publicDirectFolder = path.join(__dirname, '../public')
@@ -24,16 +24,6 @@ app.get('', (req, res) =>{
         tittle: 'Weather app',
         name: 'Thiago Calegario'
     })
-})
-app.get('/products', (req, res) => {
-    if (!req.query.search){
-        req.send('Você não especificou o produto para busca')
-    } else{
-        console.log(req.query.search)
-        res.send({
-            products: []
-        })
-    }
 })
 app.get('/weather', (req, res) => {
     const address = req.query.address

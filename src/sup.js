@@ -1,7 +1,7 @@
 const request = require("request");
 
 const getCoords = (city, callback ) => {
-    const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + city + ".json?proximity=ip&types=place%2Cpostcode%2Caddress&access_token=pk.eyJ1IjoidGhpYWdvY2FsZWdhcmlvIiwiYSI6ImNsNm1jbmFtajBrYW0zZG10aXBycnU2YWoifQ.spFuCwC5RHuPrA8YG5-4pw"
+    const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + city + ".json?proximity=ip&types=place%2Cpostcode%2Caddress&access_token=pk.eyJ1IjoidGhpYWdvY2FsZWdhcmlvIiwiYSI6ImNsNm1jbmFtajBrYW0zZG10aXBycnU2YWoifQ.spFuCwC5RHuPrA8YG5-4pw&limit=1"
     request({ url, json: true }, (error, { body }) => {
         if (error) {
             callback('Unable to connect to location services!', undefined, undefined)
@@ -23,7 +23,7 @@ const printConditions = (coord2, coord1, callback)  =>{
         } else if (body.error) {
             callback('Unable to find location', undefined)
         } else {
-            callback(undefined, "It is "+ body.current.temperature + " degress and " + body.current.weather_descriptions)
+            callback(undefined, "Está fazendo "+ body.current.temperature + " graus em " + body.location.name + ' ' + body.location.region  + ". Sensação termica de " + body.current.feelslike)
         }
     })
 }
