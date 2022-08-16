@@ -1,5 +1,3 @@
-console.log("Cliente javascript is loaded")
-
 
 const weaderFORM = document.querySelector('form')
 const search = document.querySelector('input')
