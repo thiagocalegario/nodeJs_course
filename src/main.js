@@ -3,7 +3,9 @@ const path = require("path")
 const hbs = require('hbs')
 const app = express()
 const coord = require("./sup")
-const port = process.env.POST || 3000
+
+
+const port = process.env.PORT;
 
 
 const publicDirectFolder = path.join(__dirname, '../public')
@@ -82,5 +84,5 @@ app.get('*', (req, res) => {
     })
 })
 app.listen(port, () => {
-    console.log("Your server is on in the port 3000")
+    console.log("Your server is on in the port " + port)
 })
